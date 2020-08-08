@@ -1,7 +1,10 @@
 package post
 
+//
+// Domain model.
+//
+
 import (
-	"errors"
 	"math"
 	"time"
 )
@@ -45,11 +48,3 @@ func New(id ID, title Title, content Content) *Post {
 		ModifyDate: time.Time{}.UTC(),
 	}
 }
-
-// Repository provides access a post store.
-type Repository interface {
-	Find(id ID) (*Post, error)
-}
-
-// ErrNotFound is used when post was not found in store.
-var ErrNotFound = errors.New("not found")
