@@ -1,0 +1,21 @@
+{
+  "name": "goblogapi",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrei0/goblogapi.git"
+  },
+  "author": "@nrei <nrei.tiurin@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/nrei0/goblogapi/issues"
+  },
+  "homepage": "https://github.com/nrei0/goblogapi#readme",
+  "private": true,
+  "scripts": {
+    "ddb:posts": "npm run ddb:posts:create",
+    "ddb:posts:create": "node ./dynamodb/scripts/create_posts_table.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.733.0"
+  }
+}
