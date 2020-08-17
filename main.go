@@ -11,6 +11,7 @@ import (
 	"github.com/go-kit/kit/log"
 	"nrei.name/blogapi/post"
 	"nrei.name/blogapi/utils"
+	"nrei.name/blogapi/db"
 )
 
 const (
@@ -29,7 +30,9 @@ func main() {
 	logger = log.With(logger, "ts", log.DefaultTimestampUTC)
 	httpLogger := log.With(logger, "component", "http")
 
-	psr := post.NewRepository()
+	db := db.CreateClient(db.CreateSession())
+
+	psr := post.NewRepository(db)
 
 	// For testing purposes.
 	mockTestPostsData(psr)
